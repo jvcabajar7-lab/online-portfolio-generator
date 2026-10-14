@@ -9,9 +9,18 @@ RUN apt-get update && apt-get install -y \
 
 RUN a2enmod rewrite
 
-# Explicitly change Apache document root to Laravel public folder
-RUN sed -i -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf
-RUN sed -i -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/conf-available/*.conf
+# Update Apache document root to Laravel public folder
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/conf-available/*.conf
+
+# Enable AllowOverride All for Laravel routing
+RUN echo '<Directory /var/www/html/public/>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>' > /etc/apache2/conf-available/override.conf \
+    && a2enconf override
 
 WORKDIR /var/www/html
 COPY . .
