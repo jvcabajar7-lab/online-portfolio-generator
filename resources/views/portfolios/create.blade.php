@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Portfolio</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Tailwind CSS CDN Fallback -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-gray-900 min-h-screen p-6 flex justify-center items-center">
     <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-full my-8">
@@ -14,47 +15,47 @@
             @csrf
 
             <div>
-                <label class="block font-medium text-gray-700">Full Name</label>
+                <label class="block font-medium text-gray-700 mb-1">Full Name</label>
                 <input type="text" name="full_name" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900" required>
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Email</label>
+                <label class="block font-medium text-gray-700 mb-1">Email</label>
                 <input type="email" name="email" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900" required>
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Contact Number</label>
+                <label class="block font-medium text-gray-700 mb-1">Contact Number</label>
                 <input type="text" name="contact_number" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900">
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Address</label>
+                <label class="block font-medium text-gray-700 mb-1">Address</label>
                 <input type="text" name="address" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900">
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">About Me</label>
+                <label class="block font-medium text-gray-700 mb-1">About Me</label>
                 <textarea name="about_me" rows="3" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900"></textarea>
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Education</label>
+                <label class="block font-medium text-gray-700 mb-1">Education</label>
                 <textarea name="education" rows="3" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900"></textarea>
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Skills</label>
+                <label class="block font-medium text-gray-700 mb-1">Skills</label>
                 <textarea name="skills" rows="3" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900"></textarea>
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Projects</label>
+                <label class="block font-medium text-gray-700 mb-1">Projects</label>
                 <textarea name="projects" rows="3" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900"></textarea>
             </div>
 
             <div>
-                <label class="block font-medium text-gray-700">Work Experience</label>
+                <label class="block font-medium text-gray-700 mb-1">Work Experience</label>
                 <textarea name="work_experience" rows="3" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-900"></textarea>
             </div>
 

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $portfolio->full_name ?? 'Portfolio' }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Tailwind CSS CDN Fallback -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-gray-900 min-h-screen flex items-center justify-center p-6">
-    <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full mx-auto my-8">
         <!-- HEADER -->
         <div class="text-center border-b pb-6 mb-6">
             <h1 class="text-3xl font-bold text-gray-900">{{ $portfolio->full_name }}</h1>
@@ -45,7 +46,7 @@
         </div>
 
         <div class="text-center mt-8 pt-6 border-t">
-            <a href="{{ route('portfolios.create') }}" class="text-blue-600 hover:underline text-sm">Back to Generator</a>
+            <a href="/portfolios/create" class="text-blue-600 hover:underline text-sm font-medium">Create Another Portfolio</a>
         </div>
     </div>
 </body>
