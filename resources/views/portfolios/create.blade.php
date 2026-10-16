@@ -5,21 +5,21 @@
     <form action="{{ route('portfolios.store') }}" method="POST" class="space-y-4">
         @csrf
         <div>
-            <input type="text" name="name" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5 text-gray-900 bg-white" />
+           
             <label class="block text-sm font-medium text-slate-700">Full Name</label>
-            <input type="text" name="full_name" required class="w-full mt-1 border border-slate-300 rounded-lg p-2.5">
+             <input type="text" name="name" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5 text-black-900 bg-white" />
         </div>
         <div>
             <label class="block text-sm font-medium text-slate-700">Email</label>
-            <input type="email" name="email" required class="w-full mt-1 border border-slate-300 rounded-lg p-2.5">
+             <input type="text" name="name" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5 text-black-900 bg-white" />
         </div>
         <div>
             <label class="block text-sm font-medium text-slate-700">Contact Number</label>
-            <input type="text" name="contact_number" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5">
+             <input type="text" name="name" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5 text-black-900 bg-white" />
         </div>
         <div>
             <label class="block text-sm font-medium text-slate-700">Address</label>
-            <input type="text" name="address" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5">
+            <input type="text" name="name" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5 text-black-900 bg-white" />
         </div>
         <div>
             <label class="block text-sm font-medium text-slate-700">About Me</label>
