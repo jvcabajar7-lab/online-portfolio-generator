@@ -32,4 +32,4 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
-CMD cd /var/www/html && php artisan config:clear && composer dump-autoload --optimize && php artisan migrate --force && apache2-foreground
+CMD cd /var/www/html && php artisan migrate --force && apache2-foreground
