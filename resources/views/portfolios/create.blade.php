@@ -2,7 +2,7 @@
 @section('content')
 <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-slate-200">
     <h2 class="text-2xl font-bold mb-6 text-slate-900">Enter Your Portfolio Information</h2>
-<form action="{{ route('portfolios.store') }}" method="POST">
+<form action="{{ route('portfolios.store', [], true) }}" method="POST">
             @csrf
         <div>
            
