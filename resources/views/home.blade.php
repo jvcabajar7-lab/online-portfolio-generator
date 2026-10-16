@@ -14,10 +14,7 @@
         <p class="text-gray-400 text-lg">
             Create and share your professional portfolio in minutes.
         </p>
-        <a href="/portfolios/create" 
-           class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg shadow transition">
-            Build Your Portfolio
-        </a>
+        <a href="{{ route('portfolios.create') }}">Create Your Portfolio</a>
     </div>
 </body>
 </html>
