@@ -37,7 +37,8 @@ class PortfolioController extends Controller
 
         $portfolio = Portfolio::create($validated);
 
-        return redirect()->route('portfolios.template', $portfolio->id);
+       return redirect()->route('portfolios.select-template', $portfolio->id);
+
     }
 
     // Step 2: Choose Template
