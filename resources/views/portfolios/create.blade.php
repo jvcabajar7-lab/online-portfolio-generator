@@ -5,6 +5,7 @@
     <form action="{{ route('portfolios.store') }}" method="POST" class="space-y-4">
         @csrf
         <div>
+            <input type="text" name="name" class="w-full mt-1 border border-slate-300 rounded-lg p-2.5 text-gray-900 bg-white" />
             <label class="block text-sm font-medium text-slate-700">Full Name</label>
             <input type="text" name="full_name" required class="w-full mt-1 border border-slate-300 rounded-lg p-2.5">
         </div>
