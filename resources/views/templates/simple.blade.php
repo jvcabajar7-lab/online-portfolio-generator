@@ -1,17 +1,52 @@
-@extends('layouts.app')
-@section('content')
-<div class="max-w-2xl mx-auto bg-white p-8 rounded shadow-sm border border-gray-200">
-    <div class="text-center border-b pb-6 mb-6">
-        <h1 class="text-4xl font-serif font-bold text-gray-900">{{ $portfolio->full_name }}</h1>
-        <p class="text-gray-600 mt-2">{{ $portfolio->email }} | {{ $portfolio->contact_number }} | {{ $portfolio->address }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $portfolio->full_name ?? 'Portfolio' }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="bg-slate-900 text-gray-900 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
+        <!-- HEADER -->
+        <div class="text-center border-b pb-6 mb-6">
+            <h1 class="text-3xl font-bold text-gray-900">{{ $portfolio->full_name }}</h1>
+            <p class="text-gray-600 text-sm mt-1">
+                {{ $portfolio->email }} | {{ $portfolio->contact_number }} | {{ $portfolio->address }}
+            </p>
+        </div>
+
+        <!-- SECTIONS -->
+        <div class="space-y-6">
+            <div>
+                <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">ABOUT ME</h3>
+                <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->about_me)) !!}</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">EDUCATION</h3>
+                <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->education)) !!}</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">SKILLS</h3>
+                <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->skills)) !!}</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">PROJECTS</h3>
+                <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->projects)) !!}</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">WORK EXPERIENCE</h3>
+                <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->work_experience)) !!}</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 pt-6 border-t">
+            <a href="{{ route('portfolios.create') }}" class="text-blue-600 hover:underline text-sm">Back to Generator</a>
+        </div>
     </div>
-    <div class="space-y-6">
-        <div><h3 class="font-bold uppercase tracking-wider text-sm text-gray-500 mb-2">About Me</h3><p>{{ $portfolio->about_me }}</p></div>
-        <div><h3 class="font-bold uppercase tracking-wider text-sm text-gray-500 mb-2">Education</h3><p>{{ $portfolio->education }}</p></div>
-        <div><h3 class="font-bold uppercase tracking-wider text-sm text-gray-500 mb-2">Skills</h3><p>{{ $portfolio->skills }}</p></div>
-        <div><h3 class="font-bold uppercase tracking-wider text-sm text-gray-500 mb-2">Projects</h3><p>{{ $portfolio->projects }}</p></div>
-        <div><h3 class="font-bold uppercase tracking-wider text-sm text-gray-500 mb-2">Work Experience</h3><p>{{ $portfolio->work_experience }}</p></div>
-    </div>
-    <div class="mt-8 text-center"><a href="{{ route('portfolios.manage') }}" class="text-indigo-600 underline text-sm">Back to Management</a></div>
-</div>
-@endsection
+</body>
+</html>
