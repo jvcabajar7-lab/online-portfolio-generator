@@ -1,29 +1,21 @@
-<!-- ABOUT ME -->
-<div class="mb-6">
-    <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">ABOUT ME</h3>
-    <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->about_me ?? '')) !!}</p>
-</div>
-
-<!-- EDUCATION -->
-<div class="mb-6">
-    <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">EDUCATION</h3>
-    <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->education ?? '')) !!}</p>
-</div>
-
-<!-- SKILLS -->
-<div class="mb-6">
-    <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">SKILLS</h3>
-    <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->skills ?? '')) !!}</p>
-</div>
-
-<!-- PROJECTS -->
-<div class="mb-6">
-    <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">PROJECTS</h3>
-    <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->projects ?? '')) !!}</p>
-</div>
-
-<!-- WORK EXPERIENCE -->
-<div class="mb-6">
-    <h3 class="font-bold text-gray-700 tracking-wider text-sm mb-1">WORK EXPERIENCE</h3>
-    <p class="text-gray-900 leading-relaxed">{!! nl2br(e($portfolio->work_experience ?? '')) !!}</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Portfolio Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-gray-900 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-xl w-full text-center space-y-6">
+        <h1 class="text-3xl font-extrabold text-gray-900">Portfolio Generator</h1>
+        <p class="text-gray-600">Create and manage your professional portfolios easily with Tailwind CSS and Supabase.</p>
+        
+        <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/portfolios/create" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+                Create New Portfolio
+            </a>
+        </div>
+    </div>
+</body>
+</html>
