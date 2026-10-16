@@ -24,12 +24,17 @@ RUN echo '<Directory /var/www/html/public/>\n\
     && a2enconf override
 
 WORKDIR /var/www/html
+# Copy all project files
 COPY . .
 
+# Install dependencies and build complete classmap
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN composer dump-autoload --optimize
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
-CMD cd /var/www/html && php artisan migrate --force && apache2-foreground
+
+# Clear cache and run migration on startup
+CMD php artisan config:clear && php artisan migrate --force && apache2-foreground
