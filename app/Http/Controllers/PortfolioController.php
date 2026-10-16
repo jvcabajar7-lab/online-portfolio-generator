@@ -62,10 +62,11 @@ class PortfolioController extends Controller
 
     // View Portfolio (3 Distinct Layouts)
     public function show(Portfolio $portfolio)
-    {
-        $template = $portfolio->template_choice;
-        return view("templates.{$template}", compact('portfolio'));
-    }
+{
+    $template = $portfolio->template_choice ?? 'simple';
+    
+    return view("templates.{$template}", compact('portfolio'));
+}
 
     // Manage Portfolios List
     public function index()
