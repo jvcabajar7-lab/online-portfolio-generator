@@ -46,8 +46,7 @@
         </div>
 
         <div class="text-center mt-8 pt-6 border-t">
-            <a href="/portfolios/create" class="text-blue-600 hover:underline text-sm font-medium">Create Another Portfolio</a>
-        </div>
+<a href="{{ url('/portfolios/create') }}">Create Another Portfolio</a>       </div>
     </div>
 </body>
 </html>
