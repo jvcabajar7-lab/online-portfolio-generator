@@ -4,6 +4,11 @@
     <h2 class="text-3xl font-bold text-center mb-8 text-slate-900">Choose a Portfolio Template</h2>
     <form action="{{ route('portfolios.save_template', $portfolio->id) }}" method="POST">
         @csrf
+        <div class="mb-6">
+    <a href="{{ url('/portfolios/create') }}" class="inline-flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg shadow transition duration-150">
+        ← Back to Edit Form
+    </a>
+</div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <label class="border-2 border-slate-200 p-6 rounded-xl cursor-pointer hover:border-indigo-600 bg-white block">
                 <input type="radio" name="template_choice" value="simple" required class="mb-3">

@@ -20,26 +20,24 @@ class PortfolioController extends Controller
     }
 
     // Save to Cloud DB
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'full_name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'contact_number' => 'nullable|string',
-            'address' => 'nullable|string',
-            'about_me' => 'nullable|string',
-            'education' => 'nullable|string',
-            'skills' => 'nullable|string',
-            'projects' => 'nullable|string',
-            'work_experience' => 'nullable|string',
-            'social_links' => 'nullable|string',
-        ]);
+   public function store(Request $request)
+{
+    $validated = $request->validate([
+        'about_me' => 'required',
+        'education' => 'required',
+        'skills' => 'required',
+        'projects' => 'nullable',
+        'work_experience' => 'nullable',
+        'social_links' => 'nullable',
+    ]);
 
-        $portfolio = Portfolio::create($validated);
+    // Attach currently authenticated user ID
+    $validated['user_id'] = auth()->id();
 
-      return redirect("/portfolio/{$portfolio->id}/select-template");
+    $portfolio = Portfolio::create($validated);
 
-    }
+    return redirect("/portfolio/{$portfolio->id}/select-template");
+}
 
     // Step 2: Choose Template
     public function chooseTemplate(Portfolio $portfolio)

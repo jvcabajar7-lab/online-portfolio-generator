@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Portfolio extends Model
 {
     protected $fillable = [
-        'full_name',
-        'email',
-        'contact_number',
-        'address',
-        'about_me',
-        'education',
-        'skills',
-        'projects',
-        'work_experience',
-        'template_choice'
-    ];
+    'user_id',
+    'about_me',
+    'education',
+    'skills',
+    'projects',
+    'work_experience',
+    'social_links',
+    'template_choice',
+];
+
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }
