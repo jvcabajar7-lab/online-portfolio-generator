@@ -7,14 +7,15 @@ require __DIR__.'/auth.php';
 
 // Protected Portfolio Routes (Requires Login)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
+    // Add this dashboard route so registration redirects properly
+    Route::get('/dashboard', function () {
         return redirect()->route('portfolios.create');
-    });
+    })->name('dashboard');
 
-    Route::get('/portfolios/create', [PortfolioController::class, 'create'])->name('portfolios.create');
-    Route::post('/store', [PortfolioController::class, 'store'])->name('portfolios.store');
-    Route::get('/portfolio/{portfolio}/select-template', [PortfolioController::class, 'chooseTemplate']);
-    Route::post('/portfolio/{portfolio}/save-template', [PortfolioController::class, 'saveTemplate']);
+    Route::get('/portfolios/create', [App\Http\Controllers\PortfolioController::class, 'create'])->name('portfolios.create');
+    Route::post('/store', [App\Http\Controllers\PortfolioController::class, 'store'])->name('portfolios.store');
+    Route::get('/portfolio/{portfolio}/select-template', [App\Http\Controllers\PortfolioController::class, 'chooseTemplate']);
+    Route::post('/portfolio/{portfolio}/save-template', [App\Http\Controllers\PortfolioController::class, 'saveTemplate']);
 });
 
 // Publicly accessible portfolio link (So employers/friends can view without logging in)
